@@ -1,0 +1,27 @@
+.col {
+  height: 200px;
+  border-bottom: 1px solid dimgray;
+  @media screen and (max-width: 570px) {
+    height: 200px;
+  }
+
+  .colImage {
+    text-align: center;
+    padding: 5px;
+    img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+    }
+  }
+
+  .colText {
+    padding: 20px;
+
+    p {
+      font-family: NanumGothicExtraBold;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}

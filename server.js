@@ -51,7 +51,26 @@ app.prepare().then(() => {
   server.get("/join", (req, res) => {
     return app.render(req, res, "/join", req.query)
   })
-  server.use(handle).listen(80, () => {
-    console.log("http://localhost:" + 80)
-  })
+
+  server.use(handle)
+
+  // server.use(handle).listen(80, () => {
+  //   console.log("http://localhost:" + 80)
+  // })
+
+  require("greenlock-express")
+    .create({
+        email: "6125024@gmail.com", // The email address of the ACME user / hosting provider
+        agreeTos: true, // You must accept the ToS as the host which handles the certs
+        configDir: "~/.config/acme/", // Writable directory where certs will be saved
+        communityMember: true, // Join the community to get notified of important updates
+        telemetry: true, // Contribute telemetry data to the project
+ 
+        // Using your express app:
+        // simply export it as-is, then include it here
+        app: server
+ 
+        //, debug: true
+    })
+    .listen(80, 443);
 })

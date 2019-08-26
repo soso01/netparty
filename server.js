@@ -35,7 +35,7 @@ app.prepare().then(() => {
 
   server.get('/.well-known/acme-challenge/:filename', (req, res) => {
     res.status(200).sendFile(req.params.filename, {
-      root: __dirname + '/static/ssl/',
+      root: __dirname + '/static/.well-known/acme-challenge/',
       headers: {
         'Content-Type': 'text/plain;charset=UTF-8',
       }

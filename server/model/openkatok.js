@@ -5,7 +5,7 @@ const openkatokSchema = new mongoose.Schema({
   valid: Boolean,
   content: String,
   password: String,
-  Date: {type: Date, default: Date.now}
+  Date: String
 })
 
 const openkatok = mongoose.model("openkatok", openkatokSchema)

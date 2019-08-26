@@ -13,28 +13,28 @@ const DemoBox = props => (
 const Home = () => (
   <Layout>
     <Row>
-      <Col xs={{ span: 24, offset: 0 }} md={{ span: 12, offset: 6 }}>
+      <Col xs={{ span: 24, offset: 0 }} lg={{ span: 12, offset: 6 }}>
         <Row className="col" type="flex" justify="center" align="middle">
-          <Col span={16} className="colText">
+          <Col xs={{span:16}} lg={{span:18}} className="colText">
             <p>넷플릭스를 파티원과 함께 저렴하게 즐기세요!</p>
           </Col>
-          <Col span={8} className="colImage">
+          <Col xs={{span:8}} lg={{span:6}} className="colImage">
             <img src="/static/premium.png" />
           </Col>
         </Row>
         <Row className="col" type="flex" justify="center" align="middle">
-          <Col span={8} className="colImage">
+          <Col xs={{span:8}} lg={{span:6}} className="colImage">
             <img src="/static/kakao.png" />
           </Col>
-          <Col span={16} className="colText">
+          <Col xs={{span:16}} lg={{span:18}} className="colText">
             <p>카카오톡 오픈채팅을 이용한 간편한 모임!</p>
           </Col>
         </Row>
         <Row className="col" type="flex" justify="center" align="middle">
-          <Col span={16} className="colText">
+          <Col xs={{span:16}} lg={{span:18}} className="colText">
             <p>가입없이 지금 당장 이용하세요!</p>
           </Col>
-          <Col span={8} className="colImage">
+          <Col xs={{span:8}} lg={{span:6}} className="colImage">
             <img src="/static/party.png" />
           </Col>
         </Row>

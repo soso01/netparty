@@ -48,7 +48,7 @@ class layout extends Component {
             </div>
           </div>
           <div className="Content">{this.props.children}</div>
-          <div className="Footer">푸터</div>
+          <div className="Footer"><a href="https://hukudev.tistory.com/">개발자 블로그</a></div>
         </div>
       </div>
     )

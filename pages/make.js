@@ -59,10 +59,16 @@ class Make extends Component {
           <Col id="makeNotice" xs={{span:20, offset:2}} md={{ span: 12, offset: 6 }}>
             <Card title="파티 생성하기" bordered={true}>
               <p>
-                - 카카오톡 오픈카톡을 생성후 주소를 기입해주세요.
+                - 카카오톡 오픈카톡을 생성 후 주소를 기입해주세요.
+              </p>
+              <p>
+                - 유효한 오픈카톡 링크만 등록할 수 있습니다.
               </p>
               <p>
                 - 인원을 모두 구하면 카카오톡 앱에서 링크삭제를 해주세요. 사이트에서도 반영됩니다.
+              </p>
+              <p>
+                - <a href="https://seogilang.tistory.com/815">오픈채팅 만드는 방법과 링크공유</a>
               </p>
             </Card>
           </Col>

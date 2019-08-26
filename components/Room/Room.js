@@ -9,9 +9,9 @@ class Room extends Component {
     const splited = this.props.data.content.split("\n");
     return (
       <Row>
-        <Col xs={{ span: 20, offset: 2 }} md={{ span: 12, offset: 6 }}>
+        <Col xs={{ span: 22, offset: 1 }} md={{ span: 12, offset: 6 }}>
           <Row className="roomDiv" type="flex" justify="center" align="middle">
-            <Col span={18}>
+            <Col span={18} className="textCol">
               <Row>
                 <Col>
                   <div>
@@ -28,21 +28,25 @@ class Room extends Component {
               </Row>
               <Row>
                 <Col>
-                  <span>{this.props.data.Date + "  "}</span>
-                  <span
-                    onClick={() => {
-                      this.props.removeHandler(this.props.data);
-                    }}
-                  >
-                    <Icon type="close-square" style={{ color: "#FF0000" }} />
-                  </span>
+                  <br />
+                  <span>{this.props.data.DateFormat}</span>
                 </Col>
               </Row>
             </Col>
-            <Col span={6}>
+            <Col span={6} className="buttonCol">
               <a href={this.props.data.address} target="_blank">
-                <Button>입장하기</Button>
+                <Button type="primary">입장</Button>
               </a>
+              <br></br>
+              <Button
+                onClick={() => {
+                  this.props.removeHandler(this.props.data);
+                }}
+                type="danger"
+                style={{ marginTop: 10 }}
+              >
+                삭제
+              </Button>
             </Col>
           </Row>
         </Col>

@@ -50,71 +50,73 @@ class Join extends Component {
   printData(data) {
     return (
       <div>
-        <p>입장가능한 단톡방 : {this.state.trueCount}</p>
-        <p>누적 단톡방 : {this.state.falseCount}</p>
-        <Button
-          onClick={async () => {
-            await this.setState({ valid: true, page: 1 });
-            const data = await this.getData();
-            await this.setState({
-              data: data
-            });
-          }}
-        >
-          입장가능방
-        </Button>
-        <Button
-          onClick={async () => {
-            await this.setState({ valid: false, page: 1 });
-            const data = await this.getData();
-            await this.setState({
-              data: data
-            });
-          }}
-        >
-          종료된방
-        </Button>
-        {data.map(v => (
-          <Room data={v} removeHandler={this.removeHandler} />
-        ))}
-        <Button
-          onClick={async () => {
-            await this.setState({
-              page: this.state.page === 1 ? 1 : this.state.page - 1
-            });
-            const data = await this.getData();
-            await this.setState({
-              data: data
-            });
-          }}
-        >
-          이전페이지
-        </Button>
-        <Button
-          onClick={async () => {
-            await this.setState({
-              page:
-                this.state.page ===
-                parseInt(
-                  (this.state.valid === true
-                    ? this.state.trueCount
-                    : this.state.falseCount) / 4
-                ) +
-                  1
-                  ? this.state.page
-                  : this.state.page + 1
-            });
-            const data = await this.getData();
-            await this.setState({
-              data: data
-            });
-          }}
-        >
-          다음페이지
-        </Button>
-        <p>
-          <Link href="/">메인으로</Link>
-        </p>
+        <div className="buttonDiv">
+          <Button
+            onClick={async () => {
+              await this.setState({ valid: true, page: 1 });
+              const data = await this.getData();
+              await this.setState({
+                data: data
+              });
+            }}
+          >
+            입장가능한방({this.state.trueCount})
+          </Button>
+          <Button
+            onClick={async () => {
+              await this.setState({ valid: false, page: 1 });
+              const data = await this.getData();
+              await this.setState({
+                data: data
+              });
+            }}
+          >
+            종료된방({this.state.falseCount})
+          </Button>
+        </div>
+        <div id="roomDiv">
+          {data.map(v => (
+            <Room data={v} removeHandler={this.removeHandler} />
+          ))}
+        </div>
+
+        <div className="buttonDiv">
+          <Button
+            onClick={async () => {
+              await this.setState({
+                page: this.state.page === 1 ? 1 : this.state.page - 1
+              });
+              const data = await this.getData();
+              await this.setState({
+                data: data
+              });
+            }}
+          >
+            이전페이지
+          </Button>
+          <Button
+            onClick={async () => {
+              await this.setState({
+                page:
+                  this.state.page ===
+                  parseInt(
+                    (this.state.valid === true
+                      ? this.state.trueCount
+                      : this.state.falseCount) / 4
+                  ) +
+                    1
+                    ? this.state.page
+                    : this.state.page + 1
+              });
+              const data = await this.getData();
+              await this.setState({
+                data: data
+              });
+            }}
+          >
+            다음페이지
+          </Button>
+        </div>
       </div>
     );
   }

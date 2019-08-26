@@ -1,9 +1,33 @@
+$color-primary-font: #425a7b;
+$color-secondary-font: #9dacc3;
+$color-primary-background: #fafcff;
+$color-secondary-background: #f2f6fa;
+$color-white: #fff;
+$color-indigo: #504fff;
+$color-orange-red: #ff504f;
+$gap: 25px;
+$gap-half: 10px;
+$margin: $gap;
+$margin-half: $gap-half;
+$padding: $gap;
+$padding-half: $gap-half;
+
 .roomDiv {
   border-radius: 10px;
   margin: 5px;
-  padding: 30px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  &:hover{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 skyblue;
+  padding: $padding;
+  border-radius: $gap-half;
+  background-color: $color-white;
+  box-shadow: 0px 0px $gap-half 0 $color-secondary-font;
+  &:hover {
+    box-shadow: 0px 0px 15px 0 $color-secondary-font;
   }
+}
+
+.textCol{
+  text-align: left;
+}
+
+.buttonCol{
+  text-align: right;
 }

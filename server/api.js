@@ -59,23 +59,23 @@ app.post("/maketok", async (req, res) => {
   const { address, content, password } = req.body;
   console.log(address, content);
   //체크
-  // if (checkAddress(address)) {
-  //   res.send("Address fail")
-  //   return
-  // } else if (await checkValid(address)) {
-  //   res.send("Valid fail")
-  //   return
-  // } else if (await checkOverlap(address)) {
-  //   res.send("overlap fail")
-  //   return
-  // }
+  if (checkAddress(address)) {
+    res.send("Address fail")
+    return
+  } else if (await checkValid(address)) {
+    res.send("Valid fail")
+    return
+  } else if (await checkOverlap(address)) {
+    res.send("overlap fail")
+    return
+  }
   //모델생성
   await model.openkatok.create({
     address: address,
     content: content,
     password: password,
     valid: true,
-    Date: moment().format("LL")
+    DateFormat: moment().format("LL")
   });
   res.send("success");
 });

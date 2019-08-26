@@ -24,9 +24,23 @@ app.prepare().then(() => {
       'Content-Type': 'text/plain;charset=UTF-8',
     }
   };
+
   server.get('/robots.txt', (req, res) => (
     res.status(200).sendFile('robots.txt', options)
   ));
+
+  server.get('/sitemap.xml', (req, res) => (
+    res.status(200).sendFile('sitemap.xml', options)
+  ));
+
+  server.get('/.well-known/acme-challenge/:filename', (req, res) => {
+    res.status(200).sendFile(req.params.filename, {
+      root: __dirname + '/static/ssl/',
+      headers: {
+        'Content-Type': 'text/plain;charset=UTF-8',
+      }
+    })
+  })
 
   server.get("/", (req, res) => {
     return app.render(req, res, "/index", req.query)

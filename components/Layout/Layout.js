@@ -7,6 +7,18 @@ import "antd/dist/antd.css"
 import Head from "next/head"
 
 class layout extends Component {
+  setGoogleTags() {
+    return {
+      __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-56557944-15');
+      `
+    }
+  }
+
   render() {
     return (
       <div>
@@ -25,6 +37,13 @@ class layout extends Component {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-56557944-15"
+          ></script>
+          <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+          
           <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
         </Head>
 
@@ -48,7 +67,9 @@ class layout extends Component {
             </div>
           </div>
           <div className="Content">{this.props.children}</div>
-          <div className="Footer"><a href="https://hukudev.tistory.com/">개발자 블로그</a></div>
+          <div className="Footer">
+            <a href="https://hukudev.tistory.com/">개발자 블로그</a>
+          </div>
         </div>
       </div>
     )

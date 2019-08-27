@@ -28,7 +28,6 @@ class Room extends Component {
               </Row>
               <Row>
                 <Col>
-                  <br />
                   <span>{this.props.data.DateFormat}</span>
                 </Col>
               </Row>

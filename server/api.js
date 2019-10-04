@@ -25,7 +25,7 @@ const checkValid = async address => {
         resolve(true);
       }
       const $ = cheerio.load(body);
-      const checkString = $(".openchat_chat_btn")
+      const checkString = $(".btn_chat")
         .text()
         .trim();
       resolve(Boolean(!checkString));

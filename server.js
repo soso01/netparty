@@ -18,30 +18,6 @@ app.prepare().then(() => {
 
   server.use("/api", api)
 
-  const options = {
-    root: __dirname + '/static/',
-    headers: {
-      'Content-Type': 'text/plain;charset=UTF-8',
-    }
-  };
-
-  server.get('/robots.txt', (req, res) => (
-    res.status(200).sendFile('robots.txt', options)
-  ));
-
-  server.get('/sitemap.xml', (req, res) => (
-    res.status(200).sendFile('sitemap.xml', options)
-  ));
-
-  server.get('/.well-known/acme-challenge/:filename', (req, res) => {
-    res.status(200).sendFile(req.params.filename, {
-      root: __dirname + '/static/.well-known/acme-challenge/',
-      headers: {
-        'Content-Type': 'text/plain;charset=UTF-8',
-      }
-    })
-  })
-
   server.get("/", (req, res) => {
     return app.render(req, res, "/index", req.query)
   })
@@ -51,26 +27,7 @@ app.prepare().then(() => {
   server.get("/join", (req, res) => {
     return app.render(req, res, "/join", req.query)
   })
-
-  server.use(handle)
-
-  // server.use(handle).listen(80, () => {
-  //   console.log("http://localhost:" + 80)
-  // })
-
-  require("greenlock-express")
-    .create({
-        email: "6125024@gmail.com", // The email address of the ACME user / hosting provider
-        agreeTos: true, // You must accept the ToS as the host which handles the certs
-        configDir: "~/.config/acme/", // Writable directory where certs will be saved
-        communityMember: true, // Join the community to get notified of important updates
-        telemetry: true, // Contribute telemetry data to the project
- 
-        // Using your express app:
-        // simply export it as-is, then include it here
-        app: server
- 
-        //, debug: true
-    })
-    .listen(80, 443);
+  server.use(handle).listen(port, () => {
+    console.log("http://localhost:" + port)
+  })
 })

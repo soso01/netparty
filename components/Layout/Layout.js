@@ -68,7 +68,7 @@ class layout extends Component {
           </div>
           <div className="Content">{this.props.children}</div>
           <div className="Footer">
-            <a href="https://jsman.tistory.com/">개발자 블로그</a>
+            <a href="https://github.com/soso01">개발자 깃헙</a>
           </div>
         </div>
       </div>

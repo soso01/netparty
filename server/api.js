@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const model = require("./model");
 const request = require("request");
 const cheerio = require("cheerio");
-const deleteKey = require("../key").deleteKey;
+const deleteKey = require("../key.js").deleteKey;
 const moment = require("moment")
 require('moment/locale/ko')
 

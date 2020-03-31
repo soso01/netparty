@@ -24,7 +24,7 @@
     "imagemin-svgo": "^7.0.0",
     "moment": "^2.24.0",
     "mongoose": "^5.6.9",
-    "next": "9.0.3",
+    "next": "9.3.2",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.5.3",
     "node-sass": "^4.12.0",
